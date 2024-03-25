@@ -14,14 +14,56 @@ const { title } = Astro.props;
     <meta name="description" content="Astro description" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Esteban&display=swap"
+      rel="stylesheet"
+    />
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
   </head>
   <body class="not-loaded">
+    <h1 id="h1h1" class="h1-hide">
+      Si alguien ama a una flor de la que sólo existe un ejemplar en millones y
+      millones de estrellas, basta que la mire para ser dichoso.
+    </h1>
     <div class="night"></div>
     <slot />
+    <h3>Feliz 26 de Marzo</h3>
   </body>
 </html>
+
+<style is:global>
+  /* .esteban-regular {
+    font-family: "Esteban", serif;
+    font-weight: 400;
+    font-style: normal;
+  } */
+
+  body {
+    font-family: "Esteban", serif;
+    font-weight: 100;
+    font-style: normal;
+  }
+  h1 {
+    z-index: 99;
+    position: absolute;
+    top: 3vh;
+    color: #fafae9;
+    text-align: center;
+    text-wrap: balance;
+    font-size: 1.8em;
+    text-shadow: 0em 0em 1.8em rgba(255, 233, 87, 0.9);
+  }
+  h3 {
+    z-index: 99;
+    position: absolute;
+    bottom: 2vh;
+    color: #fafae9;
+    text-shadow: 0em 0em 1.8em rgba(255, 233, 87, 0.9);
+  }
+</style>
 
 <script>
   onload = () => {
@@ -29,5 +71,10 @@ const { title } = Astro.props;
       document.body.classList.remove("not-loaded");
       clearTimeout(c);
     }, 1000);
+    // const b = setTimeout(() => {
+    //   const title = document.getElementById("h1h1");
+    //   title.removeAttribute("class");
+    //   clearTimeout(b);
+    // }, 1500);
   };
 </script>
